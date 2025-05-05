@@ -6,32 +6,33 @@ const { log } = labeledLogger();
 
 let x = '';
 
-x += _;
+x += 'j';
 
 setTimeout(() => {
-    x += _;
+    x += 'a';
     log('cb 1:', x);
 }, 100);
 
-x += _;
+x += 'a';
 
 setTimeout(() => {
-    x += _;
+    x += 'ipt';
     log('cb 2:', x);
 }, 300);
 
 setTimeout(() => {
     const test = x === 'javascript';
     log('cb 3:', test);
+    log(x);
     console.assert(test, 'x should be "javascript"');
 }, 500);
 
 setTimeout(() => {
-    x += _;
+    x += 'scr';
     log('cb 4:', x);
 }, 200);
 
-x += _;
+x += 'v';
 
 log(x);
 
