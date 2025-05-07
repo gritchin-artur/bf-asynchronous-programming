@@ -3,7 +3,10 @@ import { fetchUserById } from '../../../lib/fetch-user-by-id/index.js';
 /**
  *
  */
-const findGeoCoordinates = async (ids = []) => {};
+const findGeoCoordinates = async (ids = []) =>
+    await Promise.all(
+        ids.map((id) => fetchUserById(id).then((user) => user.address.geo)),
+    );
 
 // --- --- tests --- ---
 
